@@ -1,0 +1,45 @@
+{
+  "name": "lane-client",
+  "version": "1.0.0",
+  "description": "lane 配套 Windows 零代码桌面客户端（Electron）",
+  "author": "lane contributors",
+  "main": "src/main/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "capture": "electron . --capture",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.lane.client",
+    "productName": "lane-client",
+    "electronDist": "node_modules/electron/dist",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/main/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "lane-client"
+    }
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.33.5",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^26.18.0"
+  }
+}

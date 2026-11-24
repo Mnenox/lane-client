@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' lane-asset: data:; style-src 'self' 'unsafe-inline'; frame-src http://127.0.0.1:*; connect-src 'self' http://127.0.0.1:*" />
+  <title>lane-client</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="logo" id="logoBtn" role="button" tabindex="0" title="收起 / 展开导航">lane<span class="logo-bar"></span></div>
+      <nav class="nav" id="nav">
+        <button data-view="write" class="active"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16l9-9 3 3-9 9H6v-3z"/></svg><span class="nav-label">写作台</span></button>
+        <button data-view="assets"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M4 17l5-5 4 4 3-3 4 4"/></svg><span class="nav-label">素材库</span></button>
+        <button data-view="settings"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span class="nav-label">页面设置</span></button>
+        <button data-view="publish"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-label">发布管理</span></button>
+        <button data-view="backup"><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"/><path d="M9 4v4h6V4M9 14h6"/></svg><span class="nav-label">备份导出</span></button>
+      </nav>
+      <div class="side-foot" id="sideFoot">未连接内容库</div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <span class="pill" id="statusPill"><i class="dot"></i><span id="statusText">未连接</span></span>
+        <span class="repo-name" id="repoName"></span>
+        <span class="spacer"></span>
+        <button class="primary-btn" id="publishBtn">发布</button>
+      </header>
+      <section class="view" id="view-write"></section>
+      <section class="view hidden" id="view-assets"></section>
+      <section class="view hidden" id="view-settings"></section>
+      <section class="view hidden" id="view-publish"></section>
+      <section class="view hidden" id="view-backup"></section>
+    </div>
+  </div>
+  <div id="wizard" class="wizard hidden"></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
